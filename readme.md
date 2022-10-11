@@ -24,9 +24,10 @@ Run program: ./app/shell-app
 ```
 
 Running Valgrind
-
+```
 valgrind --leak-check=full ./app/shell-app
-
+```
 KCachegrind Memory Profiler Output via Command line
-
+```
 valgrind --tool=callgrind ./app/shell-app
+```

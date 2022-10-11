@@ -1,0 +1,30 @@
+sparsh@sparsh:~/Documents/808X/Valgrind-Exercise/build$ valgrind --leak-check=full ./app/shell-app
+==16258== Memcheck, a memory error detector
+==16258== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==16258== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==16258== Command: ./app/shell-app
+==16258== 
+Averaged sensor reading: 10
+==16258== Conditional jump or move depends on uninitialised value(s)
+==16258==    at 0x10A31B: main (main.cpp:9)
+==16258== 
+==16258== 
+==16258== HEAP SUMMARY:
+==16258==     in use at exit: 44 bytes in 2 blocks
+==16258==   total heap usage: 4 allocs, 2 frees, 73,772 bytes allocated
+==16258== 
+==16258== 44 (24 direct, 20 indirect) bytes in 1 blocks are definitely lost in loss record 2 of 2
+==16258==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16258==    by 0x10A46E: AnalogSensor::Read() (AnalogSensor.cpp:16)
+==16258==    by 0x10A2F7: main (main.cpp:7)
+==16258== 
+==16258== LEAK SUMMARY:
+==16258==    definitely lost: 24 bytes in 1 blocks
+==16258==    indirectly lost: 20 bytes in 1 blocks
+==16258==      possibly lost: 0 bytes in 0 blocks
+==16258==    still reachable: 0 bytes in 0 blocks
+==16258==         suppressed: 0 bytes in 0 blocks
+==16258== 
+==16258== Use --track-origins=yes to see where uninitialised values come from
+==16258== For lists of detected and suppressed errors, rerun with: -s
+==16258== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
